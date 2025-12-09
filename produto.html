@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Produto - MALVEZ IMPORTADOS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #000000, #1a0000);
+            color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .futuristic-btn {
+            background: linear-gradient(45deg, #FF0000, #8B0000);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .futuristic-btn:hover {
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-box {
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .product-box img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+        }
+
+        .product-info h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 1.8em;
+            color: #00ff88;
+            margin-bottom: 25px;
+        }
+
+        .buy-btn {
+            background: linear-gradient(45deg, #FF0000, #8B0000);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .product-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>MALVEZ IMPORTADOS</h2>
+    <a href="index.html" class="futuristic-btn">Voltar</a>
+</header>
+
+<section>
+    <div class="product-box">
+
+        <img id="product-image" src="" alt="Produto">
+
+        <div class="product-info">
+            <h2 id="product-title"></h2>
+
+            <p id="product-description"></p>
+
+            <div class="price" id="product-price"></div>
+
+            <button class="buy-btn" id="buy-button">COMPRAR PELO WHATSAPP</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 MALVEZ IMPORTADOS</p>
+</footer>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    let nomeProduto = '';
+    let precoProduto = '';
+    let descricaoProduto = '';
+
+    if (productId === '1') {
+        nomeProduto = 'Jean Paul Gaultier Miniatura 25ml';
+        precoProduto = 'R$ 129,90';
+        descricaoProduto = 'Perfume masculino importado, fragrância intensa, moderna e extremamente sedutora. Miniatura de 25ml.';
+        document.getElementById('product-image').src = 'jean paul gautier.jpeg';
+    } 
+   else if (productId === '2') {
+    nomeProduto = 'Good Girl Miniatura 40ml';
+    precoProduto = 'R$ 149,90';
+    descricaoProduto = 'Perfume feminino sofisticado, doce na medida certa, marcante e envolvente. Miniatura de 40ml.';
+    document.getElementById('product-image').src = 'good girl.png';
+}
+
+    else if (productId === '5') {
+        nomeProduto = 'Creed Aventus Black Miniatura 30ml';
+        precoProduto = 'R$ 169,90';
+        descricaoProduto = 'Perfume premium masculino, aroma forte, elegante e extremamente luxuoso. Miniatura de 30ml.';
+        document.getElementById('product-image').src = 'creed aventus.jpeg';
+    }
+    else if (productId === '4') {
+        nomeProduto = 'Ferrari Red Miniatura 30ml';
+        precoProduto = 'R$ 99,90';
+        descricaoProduto = 'Perfume masculino esportivo, vibrante, jovem e marcante para o dia a dia. Miniatura de 30ml.';
+        document.getElementById('product-image').src = 'ferrari red.jpeg';
+    }
+    else if (productId === '3') {
+        nomeProduto = 'Sauvage Dior Miniatura 30ml';
+        precoProduto = 'R$ 179,90';
+        descricaoProduto = 'Perfume masculino sofisticado, intenso, moderno e extremamente elegante. Miniatura de 30ml.';
+        document.getElementById('product-image').src = 'dior sauvage.png';
+    } 
+    else {
+        nomeProduto = 'Produto não encontrado';
+        precoProduto = '';
+        descricaoProduto = 'ID inválido.';
+    }
+
+    document.getElementById('product-title').textContent = nomeProduto;
+    document.getElementById('product-description').textContent = descricaoProduto;
+    document.getElementById('product-price').textContent = precoProduto;
+
+    document.getElementById('buy-button').addEventListener('click', function () {
+        const mensagem = `Olá! Tenho interesse no ${nomeProduto} no valor de ${precoProduto}.`;
+        const telefone = '5545999244569';
+        const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+        window.open(link, '_blank');
+    });
+</script>
+
+</body>
+</html>

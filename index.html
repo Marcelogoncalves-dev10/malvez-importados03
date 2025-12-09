@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfumes Importados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="logo">
+            <img src="logo.jpeg" alt="Logo">
+        </div>
+        <a href="https://www.instagram.com/malvez.importados/" target="_blank" class="instagram-link">
+            @MALVEZ.IMPORTADOS
+        </a>
+    </div>
+
+    <a 
+  class="futuristic-btn" 
+  href="https://wa.me/5545999244569?text=Olá,%20pode me %20ajudar%20por favor!"target="_blank">Falar com Atendente</a>
+
+</header>
+
+<section>
+    <h2>Apresentação</h2>
+    <div class="video-container">
+        <iframe width="100%" height="450"
+            src="https://www.youtube.com/embed/QDWkreQXgAA"
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<section>
+    <h2>Perfumes Miniaturas</h2>
+
+    <div class="products-grid">
+
+        <div class="product-card">
+            <img src="jean paul gautier.jpeg">
+            <h3>Jean Paul Gaultier</h3>
+            <p>Miniatura 25ml. Aroma marcante, doce e sensual, perfeito para noites especiais.</p>
+            <a href="produto.html?id=1" class="buy-btn">Comprar</a>
+
+        </div>
+
+        <div class="product-card">
+            <img src="Good Girl.png">
+            <h3>Good Girl</h3>
+            <p>Miniatura 40ml. Doce, elegante e envolvente, ideal para mulheres poderosas.</p>
+            <a href="produto.html?id=2" class="buy-btn">Comprar</a>
+
+        </div>
+
+        <div class="product-card">
+            <img src="dior sauvage.png">
+            <h3>Dior Sauvage</h3>
+            <p>Miniatura 30ml. Refrescante, masculino e extremamente chamativo.</p>
+            <a href="produto.html?id=3" class="buy-btn">Comprar</a>
+
+        </div>
+
+        <div class="product-card">
+            <img src="ferrari red.jpeg">
+            <h3>Ferrari Red</h3>
+            <p>Miniatura 30ml. Clássico, vibrante e perfeito para o dia a dia.</p>
+            <a href="produto.html?id=4" class="buy-btn">Comprar</a>
+
+        </div>
+
+        <div class="product-card">
+            <img src="creed aventus.jpeg" alt="Creed Aventus Black">
+            <h3>Creed Aventus Black</h3>
+            <p>Miniatura importada 30ml com aroma forte, luxuoso e extremamente sofisticado. Ideal para quem busca presença e elegância.</p>
+            <button class="buy-btn" onclick="window.location.href='produto.html?id=5'">Comprar</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="feedback-section" id="feedback">
+  <h2>Deixe seu Feedback</h2>
+
+  <form class="feedback-form" id="feedbackForm">
+    <input type="text" id="nome" placeholder="Seu nome" required>
+    <textarea id="mensagem" placeholder="Escreva seu feedback..." required></textarea>
+    <button type="submit">Enviar Feedback</button>
+  </form>
+
+  <div class="feedback-container" id="listaFeedbacks"></div>
+</section>
+
+<script>
+  const form = document.getElementById("feedbackForm");
+  const lista = document.getElementById("listaFeedbacks");
+
+  let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+  // REMOVE FEEDBACKS INVÁLIDOS (undefined, vazios, etc)
+  feedbacks = feedbacks.filter(item => 
+    item.nome && item.mensagem && 
+    item.nome !== "undefined" && 
+    item.mensagem !== "undefined"
+  );
+
+  localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+  function renderizarFeedbacks() {
+    lista.innerHTML = "";
+
+    feedbacks.forEach(item => {
+      const div = document.createElement("div");
+      div.classList.add("feedback-card");
+      div.innerHTML = `
+        <p>"${item.mensagem}"</p>
+        <span>— ${item.nome}</span>
+      `;
+      lista.appendChild(div);
+    });
+  }
+
+  renderizarFeedbacks();
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const mensagem = document.getElementById("mensagem").value.trim();
+
+    // BLOQUEIA ENVIO VAZIO
+    if (nome === "" || mensagem === "") {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    feedbacks.push({ nome, mensagem });
+    localStorage.setItem("feedbacks", JSON.stringify(feedbacks));
+
+    form.reset();
+    renderizarFeedbacks();
+  });
+</script>
+
+
+
+<footer>
+    © 2025 - Loja de Perfumes Importados
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+/* ============================= */
+/* RESET */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/* BODY */
+/* ============================= */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #1a0000);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* ============================= */
+/* BOTÕES */
+/* ============================= */
+.futuristic-btn,
+.buy-btn {
+    background: linear-gradient(45deg, #ff0000, #8b0000);
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.9);
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.futuristic-btn:hover,
+.buy-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+}
+
+/* ============================= */
+/* SEÇÕES */
+/* ============================= */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* ============================= */
+/* TÍTULOS */
+/* ============================= */
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
+}
+
+/* ============================= */
+/* VÍDEO */
+/* ============================= */
+.video-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
+/* ============================= */
+/* GRID */
+/* ============================= */
+.products-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* ============================= */
+/* CARD DO PRODUTO */
+/* ============================= */
+.product-card {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 340px;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-12px);
+}
+
+/* ============================= */
+/* IMAGEM DOS PERFUMES (PADRÃO) */
+/* ============================= */
+.product-card img {
+    width: 100%;
+    max-width: 110px;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin: 5px auto;
+    display: block;
+    background: #000;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+/* ============================= */
+/* TEXTO DO PRODUTO */
+/* ============================= */
+.product-card h3 {
+    font-size: 1.4rem;
+    margin-top: 10px;
+}
+
+.product-card p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 10px;
+}
+
+/* ============================= */
+/* FEEDBACK */
+/* ============================= */
+#feedback-section {
+    background: rgba(255, 0, 0, 0.07);
+    max-width: 850px;
+    margin: 0 auto;
+    border-radius: 15px;
+    padding: 40px 25px;
+}
+
+#feedbacks {
+    margin-bottom: 25px;
+}
+
+.feedback-item {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+/* ============================= */
+/* FORMULÁRIO */
+/* ============================= */
+#feedback-form input,
+#feedback-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ff0000;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    outline: none;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+footer {
+    background: rgba(0, 0, 0, 0.95);
+    text-align: center;
+    padding: 25px;
+    font-size: 0.95rem;
+}
+
+/* ============================= */
+/* RESPONSIVO */
+/* ============================= */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .product-card img {
+        max-width: 120px;
+        height: 140px;
+    }
+}
+
+header {
+    position: relative;
+    height: 90px; /* garante altura fixa da barra */
+}
+
+.instagram-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* ✅ CENTRALIZA NA VERTICAL E HORIZONTAL */
+
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ff0033;
+    text-shadow: 0 0 12px rgba(255, 0, 0, 0.9);
+    transition: 0.3s ease;
+}
+
+.instagram-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(255, 0, 0, 1);
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* ===== FEEDBACK COM FORMULÁRIO REAL ===== */
+
+.feedback-section {
+  width: 100%;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #000, #120000);
+  text-align: center;
+}
+
+.feedback-section h2 {
+  color: #ff0000;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px red;
+}
+
+.feedback-form {
+  max-width: 400px;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid red;
+  background: black;
+  color: white;
+  font-size: 14px;
+}
+
+.feedback-form textarea {
+  resize: none;
+  height: 90px;
+}
+
+.feedback-form button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: red;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 0 0 10px red;
+  transition: 0.3s;
+}
+
+.feedback-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px red;
+}
+
+.feedback-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.feedback-card {
+  width: 300px;
+  padding: 25px;
+  border-radius: 15px;
+  background: rgba(255, 0, 0, 0.08);
+  border: 1px solid red;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  color: white;
+  transition: 0.3s;
+}
+
+.feedback-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px red;
+}
+
+.feedback-card p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.feedback-card span {
+  font-size: 14px;
+  color: #ff4c4c;
+  font-weight: bold;
+}
